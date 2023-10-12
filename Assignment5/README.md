@@ -2,12 +2,7 @@
 * `pip install fastapi`
 * `pip install "uvicorn[standard]"`  
 * `pip install sqlalchemy`  
-* `pip install pymysql`  
-### Import packages and make a fastapi Server:
-`from typing import Union`  
-`from fastapi import FastAPI`  
-`app = FastAPI()`  
-### Annotate functions with API URL
+* `pip install pymysql`
 ### Run the server:
 `uvicorn api.main:app --reload`
 ### Test API by built-in docs:
