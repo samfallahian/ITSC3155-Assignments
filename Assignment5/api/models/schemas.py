@@ -12,8 +12,9 @@ class SandwichCreate(SandwichBase):
     pass
 
 
-class SandwichUpdate(SandwichBase):
-    pass
+class SandwichUpdate(BaseModel):
+    sandwich_name: Optional[str] = None
+    price: Optional[float] = None
 
 
 class Sandwich(SandwichBase):
@@ -32,8 +33,9 @@ class ResourceCreate(ResourceBase):
     pass
 
 
-class ResourceUpdate(ResourceBase):
-    pass
+class ResourceUpdate(BaseModel):
+    item: Optional[str] = None
+    amount: Optional[int] = None
 
 
 class Resource(ResourceBase):
@@ -51,6 +53,10 @@ class RecipeCreate(RecipeBase):
     sandwich_id: int
     resource_id: int
 
+class RecipeUpdate(BaseModel):
+    sandwich_id: Optional[int] = None
+    resource_id: Optional[int] = None
+    amount: Optional[int] = None
 
 class Recipe(RecipeBase):
     id: int
@@ -68,6 +74,11 @@ class OrderDetailBase(BaseModel):
 class OrderDetailCreate(OrderDetailBase):
     order_id: int
     sandwich_id: int
+
+class OrderDetailUpdate(BaseModel):
+    order_id: Optional[int] = None
+    sandwich_id: Optional[int] = None
+    amount: Optional[int] = None
 
 
 class OrderDetail(OrderDetailBase):
@@ -88,8 +99,9 @@ class OrderCreate(OrderBase):
     pass
 
 
-class OrderUpdate(OrderBase):
-    pass
+class OrderUpdate(BaseModel):
+    customer_name: Optional[str] = None
+    description: Optional[str] = None
 
 
 class Order(OrderBase):
