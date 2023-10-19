@@ -20,7 +20,7 @@ class SandwichUpdate(BaseModel):
 class Sandwich(SandwichBase):
     id: int
 
-    class Config:
+    class ConfigDict:
         from_attributes = True
 
 
@@ -41,7 +41,7 @@ class ResourceUpdate(BaseModel):
 class Resource(ResourceBase):
     id: int
 
-    class Config:
+    class ConfigDict:
         from_attributes = True
 
 
@@ -63,7 +63,7 @@ class Recipe(RecipeBase):
     sandwich: Sandwich = None
     resource: Resource = None
 
-    class Config:
+    class ConfigDict:
         from_attributes = True
 
 
@@ -86,7 +86,7 @@ class OrderDetail(OrderDetailBase):
     order_id: int
     sandwiches: list[Sandwich] = None
 
-    class Config:
+    class ConfigDict:
         from_attributes = True
 
 
@@ -106,9 +106,8 @@ class OrderUpdate(BaseModel):
 
 class Order(OrderBase):
     id: int
-    # order_date: Optional[datetime] = None
-    order_date: datetime | None = None
+    order_date: Optional[datetime] = None
     order_details: list[OrderDetail] = None
 
-    class Config:
+    class ConfigDict:
         from_attributes = True
