@@ -1,5 +1,6 @@
 from fastapi import Depends, FastAPI, HTTPException
 from sqlalchemy.orm import Session
+from fastapi.middleware.cors import CORSMiddleware
 
 from .models import models, schemas
 from .controllers import orders
@@ -8,6 +9,16 @@ from .dependencies.database import engine, get_db
 models.Base.metadata.create_all(bind=engine)
 
 app = FastAPI()
+
+origins = ["*"]
+
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=origins,
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
 
 
 @app.post("/orders/", response_model=schemas.Order, tags=["Orders"])
