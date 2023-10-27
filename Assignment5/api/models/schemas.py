@@ -84,7 +84,7 @@ class OrderDetailUpdate(BaseModel):
 class OrderDetail(OrderDetailBase):
     id: int
     order_id: int
-    sandwiches: list[Sandwich] = None
+    sandwich: Sandwich = None
 
     class ConfigDict:
         from_attributes = True
