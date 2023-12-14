@@ -5,7 +5,6 @@ from .routers import index as indexRoute
 from .models import model_loader
 from .dependencies.config import conf
 
-from .dependencies.database import engine, get_db
 
 app = FastAPI()
 
